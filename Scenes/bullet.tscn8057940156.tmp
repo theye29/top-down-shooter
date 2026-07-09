@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cmuhrmi5j2qi3"]
+
+[ext_resource type="Script" uid="uid://dyfxv1cplyswx" path="res://Scripts/bulletScript.gd" id="1_xjght"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4mw4s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjght"]
+
+[node name="Bullet" type="Area2D" unique_id=2029339217]
+scale = Vector2(10, 10)
+script = ExtResource("1_xjght")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=615864641]
+modulate = Color(1, 1, 0, 1)
+mesh = SubResource("SphereMesh_4mw4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1254320016]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("CircleShape2D_xjght")

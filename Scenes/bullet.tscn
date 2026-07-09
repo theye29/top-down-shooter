@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cmuhrmi5j2qi3"]
+
+[ext_resource type="Script" uid="uid://dyfxv1cplyswx" path="res://Scripts/bulletScript.gd" id="1_xjght"]
+[ext_resource type="PackedScene" uid="uid://p4v6wsyv5gxc" path="res://Scenes/impact.tscn" id="2_oduel"]
+[ext_resource type="AudioStream" uid="uid://nf2y4c85adkg" path="res://Sounds/sfx - bullet_impact.ogg" id="3_ycag2"]
+
+[node name="Bullet" type="RayCast2D" unique_id=163554035 groups=["bullet"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_xjght")
+hit_particle = ExtResource("2_oduel")
+
+[node name="BulletImpact" type="AudioStreamPlayer2D" parent="." unique_id=126904368]
+stream = ExtResource("3_ycag2")

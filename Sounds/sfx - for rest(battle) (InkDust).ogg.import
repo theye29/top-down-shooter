@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhwwku4jo5fh5"
+path="res://.godot/imported/sfx - for rest(battle) (InkDust).ogg-7575f13fbe2453c82847560714cc16d7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/sfx - for rest(battle) (InkDust).ogg"
+dest_files=["res://.godot/imported/sfx - for rest(battle) (InkDust).ogg-7575f13fbe2453c82847560714cc16d7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

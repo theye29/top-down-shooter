@@ -1,0 +1,780 @@
+[gd_scene format=3 uid="uid://4k04m4y6vhuv"]
+
+[ext_resource type="PackedScene" uid="uid://cralvyjdjvhl1" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://bvf2s8t4xe8ee" path="res://Scripts/gameScript.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://ub5t88vl7348" path="res://Scenes/zombie_basic.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://cmwjm7jtf2cvt" path="res://Scenes/zombie_boss.tscn" id="3_3dryh"]
+[ext_resource type="Texture2D" uid="uid://dqhou7mbng1ud" path="res://Sprites/ammo-pistol 32px.png" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://d1aojp8uhypqc" path="res://Scripts/waveScript.gd" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://bymgmpi00cula" path="res://Scenes/zombie_fast.tscn" id="6_rku1e"]
+[ext_resource type="PackedScene" uid="uid://de0gu4x5aqnnl" path="res://Scenes/map.tscn" id="7_1l0tm"]
+[ext_resource type="AudioStream" uid="uid://wmv4yn8ikpg8" path="res://Sounds/sfx - for rest(calm) (InkDust).ogg" id="7_1phco"]
+[ext_resource type="Script" uid="uid://ofoj4koanye2" path="res://Scripts/shopScript.gd" id="8_ldgsr"]
+[ext_resource type="AudioStream" uid="uid://dhwwku4jo5fh5" path="res://Sounds/sfx - for rest(battle) (InkDust).ogg" id="8_nb51f"]
+[ext_resource type="Texture2D" uid="uid://dhdh516yse30i" path="res://Sprites/health-red 32px.png" id="8_v158k"]
+[ext_resource type="Texture2D" uid="uid://b6retqh68lscw" path="res://Sprites/health-armor 32px.png" id="9_h4fw4"]
+[ext_resource type="AudioStream" uid="uid://c2hwqe5m1mqhb" path="res://Sounds/sfx - Purchase.ogg" id="11_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="15_nb51f"]
+[ext_resource type="AudioStream" uid="uid://cnus3elx4b0m8" path="res://Sounds/sfx - muehehehehe.ogg" id="15_nnt18"]
+
+[sub_resource type="SystemFont" id="SystemFont_3dryh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wowpa"]
+bg_color = Color(0.7137255, 0.03529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dryh"]
+bg_color = Color(0.29586652, 0.29586652, 0.29586637, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6g32"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldgsr"]
+bg_color = Color(0.02745098, 0.47843137, 0.5294118, 0.60784316)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l0tm"]
+bg_color = Color(0.13678384, 0.13264558, 0.12699613, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v158k"]
+bg_color = Color(0.8745098, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iivbl"]
+bg_color = Color(4.813075e-06, 0.7281836, 0.98598343, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6g32"]
+font_size = 40
+outline_size = 5
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4fw4"]
+bg_color = Color(0.12941177, 0.12941177, 0.12941177, 0.9098039)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3dryh"]
+font_size = 50
+outline_size = 3
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l0tm"]
+font_size = 20
+outline_size = 1
+
+[sub_resource type="Theme" id="Theme_1l0tm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5yvi"]
+bg_color = Color(0.105882354, 0.12156863, 0.16470589, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.22745098, 0.24705882, 0.29411766, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4fw4"]
+font_size = 40
+outline_size = 5
+shadow_size = 5
+shadow_color = Color(0, 0.37969717, 0.5697938, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldgsr"]
+font_size = 22
+outline_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rku1e"]
+bg_color = Color(0.16470589, 0.18431373, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85qyi"]
+bg_color = Color(0.3310591, 0.3632038, 0.43376872, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfjv2"]
+bg_color = Color(0.22745098, 0.25490198, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1phco"]
+bg_color = Color(0.07058824, 0.08235294, 0.11764706, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.22745098, 0.24705882, 0.29411766, 1)
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb51f"]
+bg_color = Color(0.28863478, 0.319092, 0.40997615, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.22745098, 0.24705882, 0.29411766, 1)
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnt18"]
+bg_color = Color(0.07058824, 0.08235294, 0.11764706, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.22745098, 0.24705882, 0.29411766, 1)
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewbju"]
+bg_color = Color(0.07058824, 0.08235294, 0.11764706, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.22745098, 0.24705882, 0.29411766, 1)
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="GDScript" id="GDScript_nnt18"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5yvi"]
+font_size = 30
+font_color = Color(0, 1, 0, 1)
+outline_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nbq1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22asu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exi56"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkdbe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t8sx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81klo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgy6u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwurv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg4q0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm72l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[node name="Game" type="Node2D" unique_id=2138351129]
+script = ExtResource("1_wrm1d")
+
+[node name="Player" parent="." unique_id=2030568468 node_paths=PackedStringArray("joystick_right") instance=ExtResource("1_ebmjs")]
+joystick_right = NodePath("../CanvasLayer/VirtualJoystickRight")
+
+[node name="BulletLine" type="Line2D" parent="." unique_id=800055332]
+position = Vector2(359.99997, 363.99997)
+scale = Vector2(0.12, 0.12)
+points = PackedVector2Array(0, 0, 0, 1000)
+width = 25.0
+
+[node name="Wavemanager" type="Node2D" parent="." unique_id=69528698]
+script = ExtResource("6_i6g32")
+enemy_zombie = ExtResource("2_qxrlw")
+enemy_zombie_boss = ExtResource("3_3dryh")
+enemy_zombie_fast = ExtResource("6_rku1e")
+
+[node name="SongCalm" type="AudioStreamPlayer" parent="Wavemanager" unique_id=916845697]
+stream = ExtResource("7_1phco")
+volume_db = -15.0
+parameters/looping = false
+
+[node name="SongBattle" type="AudioStreamPlayer" parent="Wavemanager" unique_id=2108838103]
+stream = ExtResource("8_nb51f")
+volume_db = -12.0
+parameters/looping = false
+
+[node name="Map" parent="." unique_id=1528329293 instance=ExtResource("7_1l0tm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=920617911]
+
+[node name="Restart" type="Button" parent="CanvasLayer" unique_id=511406380]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 76.0
+offset_right = 54.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_3dryh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wowpa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3dryh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i6g32")
+text = "Restart"
+
+[node name="HudSelf" type="Panel" parent="CanvasLayer" unique_id=1185961480]
+offset_left = -1.0
+offset_right = 316.0
+offset_bottom = 67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ldgsr")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HudSelf" unique_id=1172990832]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 309.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1l0tm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v158k")
+step = 1.0
+value = 30.0
+show_percentage = false
+
+[node name="ShieldBar" type="ProgressBar" parent="CanvasLayer/HudSelf" unique_id=2121552699]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 29.0
+offset_right = 309.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1l0tm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iivbl")
+max_value = 50.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="AmmoSprite" type="Sprite2D" parent="CanvasLayer/HudSelf" unique_id=769461179]
+position = Vector2(25, 51)
+texture = ExtResource("5_wowpa")
+
+[node name="AmmoCount" type="Label" parent="CanvasLayer/HudSelf" unique_id=1983461000]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 79.0
+offset_bottom = 63.0
+text = "x 0"
+
+[node name="MoneyCount" type="Label" parent="CanvasLayer/HudSelf" unique_id=959564999]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 37.0
+offset_right = 240.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "$0"
+
+[node name="WaveCount" type="Label" parent="CanvasLayer" unique_id=1584542632]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "WAVE : 1"
+label_settings = SubResource("LabelSettings_i6g32")
+metadata/_edit_use_anchors_ = true
+
+[node name="Arrow" type="Node2D" parent="CanvasLayer" unique_id=227863469]
+modulate = Color(1, 0.21268043, 0.15969583, 1)
+position = Vector2(388, 285)
+scale = Vector2(0.5, 0.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Arrow" unique_id=486029504]
+position = Vector2(-31, 20)
+polygon = PackedVector2Array(-16.232735, -0.020410538, 31.183594, -48.157864, 79.60739, -1.7517166, 71.53674, 0.2659378, 31.183594, -40.087227, -7.1519165, 0.2659378)
+uv = PackedVector2Array(-16.232735, -0.020410538, 31.183594, -48.157864, 79.60739, -1.7517166, 71.53674, 0.2659378, 31.183594, -40.087227, -7.1519165, 0.2659378)
+
+[node name="GameOverPanel" type="Panel" parent="CanvasLayer" unique_id=2039450513]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h4fw4")
+
+[node name="GameOver" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=136401666]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_right = 143.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_3dryh")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemiesKilled" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=143403656]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 99.0
+offset_right = 192.0
+offset_bottom = 127.0
+text = "Enemies Killed : 0"
+label_settings = SubResource("LabelSettings_1l0tm")
+
+[node name="WavesBeaten" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=5892977]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 159.0
+offset_right = 193.0
+offset_bottom = 187.0
+text = "Waves Beaten : 0"
+label_settings = SubResource("LabelSettings_1l0tm")
+
+[node name="TimeAlive" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=543717652]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 219.0
+offset_right = 195.0
+offset_bottom = 247.0
+text = "Time Alive : 0"
+label_settings = SubResource("LabelSettings_1l0tm")
+
+[node name="Shop" type="Control" parent="CanvasLayer" unique_id=732629264]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("8_ldgsr")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Shop" unique_id=716150226]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -384.0
+offset_right = 448.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_1l0tm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5yvi")
+
+[node name="ShopLabel" type="Label" parent="CanvasLayer/Shop/Panel" unique_id=1509390599]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 71.0
+text = "SHOP"
+label_settings = SubResource("LabelSettings_h4fw4")
+horizontal_alignment = 1
+
+[node name="ConsumLabel" type="Label" parent="CanvasLayer/Shop/Panel" unique_id=1751079371]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 72.0
+offset_right = 576.0
+offset_bottom = 103.0
+text = "Consumables"
+label_settings = SubResource("LabelSettings_ldgsr")
+horizontal_alignment = 1
+
+[node name="Refills" type="HBoxContainer" parent="CanvasLayer/Shop/Panel" unique_id=4372153]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 104.0
+offset_right = 768.0
+offset_bottom = 162.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="RefillHealth" type="Button" parent="CanvasLayer/Shop/Panel/Refills" unique_id=253149938]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85qyi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+text = "Refill Health  -  $50"
+icon = ExtResource("8_v158k")
+autowrap_trim_flags = 0
+
+[node name="RefillShield" type="Button" parent="CanvasLayer/Shop/Panel/Refills" unique_id=2146146767]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85qyi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+text = "Buy Shield  -  $50"
+icon = ExtResource("9_h4fw4")
+autowrap_trim_flags = 0
+
+[node name="DontPress" type="Button" parent="CanvasLayer/Shop/Panel/Refills" unique_id=1319250227]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85qyi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "Dont buy this - 67$"
+autowrap_trim_flags = 0
+
+[node name="UpgradesLabel" type="Label" parent="CanvasLayer/Shop/Panel" unique_id=2039030883]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 176.0
+offset_right = 576.0
+offset_bottom = 207.0
+text = "Upgrades"
+label_settings = SubResource("LabelSettings_ldgsr")
+horizontal_alignment = 1
+
+[node name="Upgrades" type="GridContainer" parent="CanvasLayer/Shop/Panel" unique_id=369098025]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 216.0
+offset_right = 864.0
+offset_bottom = 368.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="DamageButton" type="Button" parent="CanvasLayer/Shop/Panel/Upgrades" unique_id=88737997]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "Damage ( 50 -> 75 )  -  50$"
+autowrap_trim_flags = 0
+
+[node name="FirerateButton" type="Button" parent="CanvasLayer/Shop/Panel/Upgrades" unique_id=1657915377]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "Firerate (1 -> 0.9)  -  50$"
+autowrap_trim_flags = 0
+
+[node name="ReloadButton" type="Button" parent="CanvasLayer/Shop/Panel/Upgrades" unique_id=2093166518]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "Reload ( 1.5 -> 1.4)  -  50$"
+autowrap_trim_flags = 0
+
+[node name="WalkButton" type="Button" parent="CanvasLayer/Shop/Panel/Upgrades" unique_id=1158774837]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "Walkspeed ( speed / 2 -> 1.8)  -  50$"
+autowrap_trim_flags = 0
+
+[node name="PiercingButton" type="Button" parent="CanvasLayer/Shop/Panel/Upgrades" unique_id=1599578040]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "Piercing ( 1 -> 2 )  -  200$"
+autowrap_trim_flags = 0
+
+[node name="MaxAmmoButton" type="Button" parent="CanvasLayer/Shop/Panel/Upgrades" unique_id=1155460276]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rfjv2")
+disabled = true
+text = "MaxAmmo (6 -> 8) - 100$"
+autowrap_trim_flags = 0
+
+[node name="Clopen" type="Button" parent="CanvasLayer/Shop/Panel" unique_id=92646888]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 384.0
+offset_right = 472.0
+offset_bottom = 416.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1phco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nb51f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1phco")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nnt18")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ewbju")
+text = "V
+"
+autowrap_trim_flags = 0
+script = SubResource("GDScript_nnt18")
+
+[node name="MoneyCount" type="Label" parent="CanvasLayer/Shop/Panel" unique_id=1306561565]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 62.0
+offset_bottom = 64.0
+text = "$0"
+label_settings = SubResource("LabelSettings_o5yvi")
+
+[node name="PurchaseSound" type="AudioStreamPlayer" parent="CanvasLayer/Shop" unique_id=479387343]
+stream = ExtResource("11_o5yvi")
+volume_db = -10.0
+pitch_scale = 1.1
+
+[node name="Muehehehehe" type="AudioStreamPlayer" parent="CanvasLayer/Shop" unique_id=1882680313]
+stream = ExtResource("15_nnt18")
+
+[node name="PlayerHit" type="ColorRect" parent="CanvasLayer" unique_id=1618920743]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+color = Color(0.52156866, 0, 0, 0)
+
+[node name="VirtualJoystickLeft" parent="CanvasLayer" unique_id=826320649 instance=ExtResource("15_nb51f")]
+
+[node name="VirtualJoystickRight" parent="CanvasLayer" unique_id=1035067650 instance=ExtResource("15_nb51f")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+use_input_actions = false
+
+[node name="ReloadButton" type="Button" parent="CanvasLayer" unique_id=588964832]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -148.99994
+offset_top = -73.0
+offset_right = -113.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7nbq1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_22asu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_exi56")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_fkdbe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7t8sx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_81klo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_tgy6u")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_cwurv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mg4q0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vm72l")
+icon = ExtResource("5_wowpa")
+
+[connection signal="pressed" from="CanvasLayer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Refills/RefillHealth" to="CanvasLayer/Shop" method="_on_refill_health_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Refills/RefillShield" to="CanvasLayer/Shop" method="_on_refill_shield_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Refills/DontPress" to="CanvasLayer/Shop" method="_on_dont_press_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Upgrades/DamageButton" to="CanvasLayer/Shop" method="_on_damage_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Upgrades/FirerateButton" to="CanvasLayer/Shop" method="_on_firerate_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Upgrades/ReloadButton" to="CanvasLayer/Shop" method="_on_reload_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Upgrades/WalkButton" to="CanvasLayer/Shop" method="_on_walk_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Upgrades/PiercingButton" to="CanvasLayer/Shop" method="_on_piercing_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Upgrades/MaxAmmoButton" to="CanvasLayer/Shop" method="_on_max_ammo_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop/Panel/Clopen" to="CanvasLayer/Shop" method="_on_clopen_pressed"]
+[connection signal="pressed" from="CanvasLayer/ReloadButton" to="CanvasLayer/Shop" method="_on_reload_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://p4v6wsyv5gxc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_33aoo"]
+
+[sub_resource type="Gradient" id="Gradient_33aoo"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m86lx"]
+gradient = SubResource("Gradient_33aoo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_33aoo"]
+particle_flag_disable_z = true
+spread = 70.0
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 200, 0)
+scale_min = 2.0
+scale_max = 4.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_m86lx")
+
+[node name="Impact" type="Node2D" unique_id=55293254]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=622326256]
+emitting = false
+amount = 20
+texture = SubResource("CanvasTexture_33aoo")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_33aoo")

@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cihgauhqsbqbo"]
+
+[ext_resource type="Script" uid="uid://dlmpmxrdqawcm" path="res://Scripts/safezoneScript.gd" id="1_c1l88"]
+[ext_resource type="Texture2D" uid="uid://c3tjj7iy2b1oo" path="res://Sprites/WoodWall.png" id="2_332vo"]
+[ext_resource type="Texture2D" uid="uid://cualq6x07jajy" path="res://Sprites/WoodFloor.png" id="2_ohm44"]
+[ext_resource type="Texture2D" uid="uid://upchiqy4745a" path="res://Sprites/WoodDoor.png" id="3_ohm44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uue8"]
+size = Vector2(16.630087, 17.542461)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1l88"]
+
+[sub_resource type="Gradient" id="Gradient_332vo"]
+offsets = PackedFloat32Array(0.36746988, 0.8373494, 0.93373495, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.92941177, 0, 0, 0, 0.81960785, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ohm44"]
+gradient = SubResource("Gradient_332vo")
+
+[node name="Safezone" type="Node2D" unique_id=427379654]
+scale = Vector2(20, 20)
+
+[node name="AreaSafezone" type="Area2D" parent="." unique_id=501247421]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(1.189, 1.189)
+script = ExtResource("1_c1l88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSafezone" unique_id=950050204]
+position = Vector2(-0.105130054, 0.39949542)
+scale = Vector2(1.0140002, 1.0140002)
+shape = SubResource("RectangleShape2D_8uue8")
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1392110024]
+z_index = -2
+position = Vector2(-0.02499998, 0.92500025)
+scale = Vector2(0.079882815, 0.08652344)
+texture = ExtResource("2_ohm44")
+
+[node name="WallUp" type="StaticBody2D" parent="." unique_id=1686789767 groups=["wall"]]
+position = Vector2(0, -11.1)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallUp" unique_id=1027392134 groups=["wall"]]
+scale = Vector2(0.096, 1.206)
+shape = SubResource("RectangleShape2D_c1l88")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallUp" unique_id=196225663 groups=["wall"]]
+polygon = PackedVector2Array(-1.0499992, 12.049999, -2.3999987, 11.049999, -3.3000002, 9.749999, -4.3999996, 7.6499996, -5.2, 5.4999995, -5.8, 3.65, -6.3, 1.8000002, -6.499999, 0.050000284, -6.3, -1.4499997, -5.8999987, -3.0999997, -5.3, -4.8499994, -4.549999, -6.7, -3.5, -8.599999, -2.3999996, -10.349999, -0.95000076, -11.999999)
+
+[node name="Sprite2D" type="Sprite2D" parent="WallUp" unique_id=772542291]
+position = Vector2(-0.0045014936, -0.09264082)
+rotation = 1.5707964
+scale = Vector2(0.094104394, 0.0075904443)
+texture = ExtResource("2_332vo")
+
+[node name="WallDown" type="StaticBody2D" parent="." unique_id=823451488 groups=["wall"]]
+position = Vector2(0, 11.1)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDown" unique_id=531406577 groups=["wall"]]
+scale = Vector2(0.096, 1.206)
+shape = SubResource("RectangleShape2D_c1l88")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallDown" unique_id=276705700]
+position = Vector2(-0.050000343, 2.1855844e-09)
+scale = Vector2(0.007718764, 0.09417607)
+texture = ExtResource("3_ohm44")
+
+[node name="WallRight" type="StaticBody2D" parent="." unique_id=1287860427 groups=["wall"]]
+position = Vector2(11.1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1217734224 groups=["wall"]]
+scale = Vector2(0.096, 1.206)
+shape = SubResource("RectangleShape2D_c1l88")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallRight" unique_id=86298230]
+position = Vector2(0.025663374, 0.0060841204)
+rotation = 1.5707964
+scale = Vector2(0.09407375, 0.007669907)
+texture = ExtResource("2_332vo")
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=26977689 groups=["wall"]]
+position = Vector2(-11.1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=1214347699 groups=["wall"]]
+scale = Vector2(0.096, 1.206)
+shape = SubResource("RectangleShape2D_c1l88")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallLeft" unique_id=1135100131]
+position = Vector2(-0.040397365, -0.005515864)
+rotation = 1.5707964
+scale = Vector2(0.09413584, 0.0077201137)
+texture = ExtResource("2_332vo")
+
+[node name="ShadowZone" type="Sprite2D" parent="." unique_id=707527164]
+visible = false
+position = Vector2(0.025773242, -0.7679177)
+rotation = 1.5707964
+scale = Vector2(0.35569006, 0.38047028)
+texture = SubResource("GradientTexture2D_ohm44")
+
+[connection signal="body_entered" from="AreaSafezone" to="AreaSafezone" method="_player_entered"]
+[connection signal="body_exited" from="AreaSafezone" to="AreaSafezone" method="_player_exited"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cralvyjdjvhl1"]
+
+[ext_resource type="Script" uid="uid://bnyoj5ywmi2nh" path="res://Scripts/playerScript.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://c1yctd4w3o37i" path="res://Sprites/Human shooter.png" id="2_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://bb6ctfnur0cft" path="res://Scenes/weapon.tscn" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://5psilc2vh418" path="res://Sounds/sfx - Footstep.ogg" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://bxkgryw54ocf1" path="res://Sounds/sfx - Zombie_bite.ogg" id="5_fkybt"]
+
+[node name="Player" type="CharacterBody2D" unique_id=2030568468 groups=["human"]]
+rotation = -1.5707964
+scale = Vector2(50, 50)
+collision_mask = 9
+script = ExtResource("1_v0iea")
+speed = 300
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1134268973]
+position = Vector2(-0.29999998, -0.020000013)
+rotation = 1.5707964
+scale = Vector2(0.006, 0.006)
+texture = ExtResource("2_6t5aa")
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="." unique_id=351115613]
+visible = false
+polygon = PackedVector2Array(0.28000003, -0.59999996, 0.42000002, -0.41999996, 0.48, -0.23999998, 0.52, -0.039999977, 0.5, 0.22000001, 0.39999995, 0.48000002, 0.13999997, 0.62, -0.10000002, 0.53999996, -0.44000003, 0.35999995, -0.65999997, 0.17999996, -0.62, 0.099999964, -0.28, 0.19999997, -0.29999998, -0.16000001, -0.58, -0.060000025, -0.62, -0.14000003, -0.059999973, -0.59999996)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=735069280]
+position_smoothing_enabled = true
+
+[node name="Weapon" parent="." unique_id=610174158 instance=ExtResource("2_cvnsp")]
+position = Vector2(-0.88, 0.01999996)
+
+[node name="Running" type="AudioStreamPlayer2D" parent="." unique_id=1233411326]
+stream = ExtResource("4_vgqql")
+volume_db = -10.0
+pitch_scale = 1.3
+parameters/looping = true
+
+[node name="ZombieBite" type="AudioStreamPlayer2D" parent="." unique_id=1883361466]
+stream = ExtResource("5_fkybt")
+volume_db = -10.0

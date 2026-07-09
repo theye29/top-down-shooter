@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bb6ctfnur0cft"]
+
+[ext_resource type="Script" uid="uid://iom1bh30lrwq" path="res://Scripts/weaponScript.gd" id="1_er6cq"]
+[ext_resource type="PackedScene" uid="uid://cmuhrmi5j2qi3" path="res://Scenes/bullet.tscn" id="2_qv81b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_17xbw"]
+
+[node name="Weapon" type="Node2D" unique_id=610174158]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_er6cq")
+bullet = ExtResource("2_qv81b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=946904349]
+modulate = Color(0.2114361, 0.20434293, 0.19260633, 1)
+scale = Vector2(1, 0.5)
+texture = SubResource("CanvasTexture_17xbw")

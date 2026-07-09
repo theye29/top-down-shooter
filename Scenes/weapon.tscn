@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bb6ctfnur0cft"]
+
+[ext_resource type="Script" uid="uid://iom1bh30lrwq" path="res://Scripts/weaponScript.gd" id="1_er6cq"]
+[ext_resource type="PackedScene" uid="uid://cmuhrmi5j2qi3" path="res://Scenes/bullet.tscn" id="2_qv81b"]
+[ext_resource type="AudioStream" uid="uid://cgoka6xmr6wyk" path="res://Sounds/sfx - gunshot.ogg" id="3_l036s"]
+[ext_resource type="AudioStream" uid="uid://qhnib7vbowxl" path="res://Sounds/sfx - Reload.ogg" id="4_7imee"]
+[ext_resource type="Texture2D" uid="uid://boips6x372u1v" path="res://Sprites/PistolWeapon.PNG" id="5_7imee"]
+
+[node name="Weapon" type="Node2D" unique_id=610174158]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_er6cq")
+bullet = ExtResource("2_qv81b")
+damage = 50
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1654323673]
+position = Vector2(-0.5, 0)
+
+[node name="GunshotSound" type="AudioStreamPlayer2D" parent="." unique_id=679301082]
+stream = ExtResource("3_l036s")
+
+[node name="ReloadSound" type="AudioStreamPlayer2D" parent="." unique_id=464114688]
+stream = ExtResource("4_7imee")
+
+[node name="WeaponSprite" type="Sprite2D" parent="." unique_id=896243190]
+position = Vector2(0, -1.8626451e-09)
+rotation = 1.5707964
+scale = Vector2(0.016116071, 0.012596153)
+texture = ExtResource("5_7imee")

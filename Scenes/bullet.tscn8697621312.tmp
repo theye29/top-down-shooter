@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cmuhrmi5j2qi3"]
+
+[ext_resource type="Script" uid="uid://dyfxv1cplyswx" path="res://Scripts/bulletScript.gd" id="1_xjght"]
+
+[node name="Bullet" type="RayCast2D" unique_id=163554035]
+scale = Vector2(3, 3)
+script = ExtResource("1_xjght")
