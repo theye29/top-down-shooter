@@ -1,23 +1,23 @@
 # Untitled Zombie Shooter
 
-Meu primeiro jogo feito em Godot.
+My first game made in Godot.
 
-## Sobre
+## About
 
-Um jogo de tiro top-down desenvolvido para aprender Godot.
+A top down shooter game developed to learn Godot.
 
-## Sistemas
+## Systems
 
-- Movimento do jogador
-- Sistema de tiro
-- Recarga
-- Inimigos com variantes
-- Sistema de waves
-- Loja e upgrades
-- Música dinâmica
-- Efeitos sonoros
+- Player movement
+- Shooting system
+- Reloading
+- Enemy variations
+- Waves system
+- Shop and upgrades
+- Dynamic music
+- Sound effects
 
 ## Download
 
-Disponível no Itch.io:
-[(seu link)](https://iseeice.itch.io/untitledzombieshooter)
+Avaliable on Itch.io:
+[Download OR Play on web (PC ONLY)](https://iseeice.itch.io/untitledzombieshooter)
